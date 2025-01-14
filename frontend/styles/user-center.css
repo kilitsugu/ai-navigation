@@ -1,0 +1,256 @@
+/* 用户中心布局 */
+.user-center {
+    background-color: var(--bg-secondary);
+    min-height: calc(100vh - 64px);
+    padding-top: 64px;
+}
+
+/* 侧边栏样式 */
+.sidebar {
+    background-color: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 24px;
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.menu-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px;
+    border-radius: 8px;
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.menu-item:hover {
+    background-color: var(--bg-light);
+    color: var(--primary-color);
+}
+
+.menu-item.active {
+    background-color: var(--primary-light);
+    color: var(--primary-color);
+}
+
+.icon {
+    font-size: 20px;
+}
+
+/* 内容区样式 */
+.content {
+    background-color: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 24px;
+}
+
+.section {
+    display: block;
+}
+
+.section.hidden {
+    display: none;
+}
+
+.section h2 {
+    margin-bottom: 24px;
+    font-size: 24px;
+    color: var(--text-color);
+}
+
+/* 个人信息卡片 */
+.profile-card {
+    display: grid;
+    gap: 32px;
+}
+
+.avatar-upload {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+}
+
+.avatar-upload img {
+    width: 120px;
+    height: 120px;
+    border-radius: 60px;
+    object-fit: cover;
+}
+
+.upload-btn {
+    padding: 8px 16px;
+    background-color: #F5F7FA;
+    color: var(--text-color);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.upload-btn:hover {
+    background-color: #E5E7EA;
+}
+
+/* 表单样式 */
+.profile-form, .settings-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group label {
+    font-size: 14px;
+    color: var(--text-color);
+    font-weight: 500;
+}
+
+.form-group input, .form-group textarea {
+    padding: 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 14px;
+    transition: all 0.2s;
+}
+
+.form-group input:focus, .form-group textarea:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(0, 122, 255, 0.1);
+}
+
+.form-group input[disabled] {
+    background-color: #F5F7FA;
+    cursor: not-allowed;
+}
+
+.save-btn {
+    padding: 12px 24px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.save-btn:hover {
+    background-color: #0066DD;
+}
+
+/* 收藏列表样式 */
+.favorites-list {
+    display: grid;
+    gap: 20px;
+}
+
+.remove-favorite {
+    padding: 4px 12px;
+    background-color: #FFE5E5;
+    color: #FF3B30;
+    border: none;
+    border-radius: 4px;
+    font-size: 12px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.remove-favorite:hover {
+    background-color: #FFD5D5;
+}
+
+/* 账号设置样式 */
+.settings-card {
+    display: grid;
+    gap: 32px;
+}
+
+.danger-zone {
+    border-top: 1px solid var(--border-color);
+    padding-top: 24px;
+}
+
+.danger-zone h3 {
+    color: #FF3B30;
+    margin-bottom: 16px;
+}
+
+.delete-account {
+    padding: 12px 24px;
+    background-color: #FF3B30;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.delete-account:hover {
+    background-color: #FF2D20;
+}
+
+/* 顶部用户信息样式 */
+.user-info {
+    text-align: center;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 24px;
+}
+
+.avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-bottom: 16px;
+    background-color: var(--bg-light);
+    border: 2px solid var(--border-color);
+}
+
+.username {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 4px;
+}
+
+.email {
+    font-size: 14px;
+    color: var(--text-secondary);
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .user-center {
+        grid-template-columns: 1fr;
+    }
+
+    .sidebar {
+        position: sticky;
+        top: 64px;
+        z-index: 100;
+    }
+
+    .menu {
+        flex-direction: row;
+        overflow-x: auto;
+        padding-bottom: 8px;
+    }
+
+    .menu-item {
+        white-space: nowrap;
+    }
+} 

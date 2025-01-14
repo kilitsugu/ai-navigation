@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>榜单管理 - AI导航</title>
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/admin.css">
+    <link rel="stylesheet" href="../styles/admin-rankings.css">
+</head>
+<body>
+    <div class="admin-layout">
+        <!-- 侧边栏 -->
+        <aside class="admin-sidebar">
+            <!-- ... 保持原有侧边栏内容 ... -->
+        </aside>
+
+        <!-- 主要内容区 -->
+        <main class="admin-main">
+            <header class="admin-header">
+                <h1>榜单管理</h1>
+                <div class="header-actions">
+                    <button class="add-ranking-btn">添加榜单</button>
+                </div>
+            </header>
+
+            <div class="admin-content">
+                <!-- 搜索和筛选 -->
+                <div class="toolbar">
+                    <input type="text" class="search-input" placeholder="搜索榜单...">
+                    <div class="filters">
+                        <select class="source-filter">
+                            <option value="">全部来源</option>
+                            <option value="36kr">36氪</option>
+                            <option value="analysys">爱分析</option>
+                            <option value="aliyun">阿里云</option>
+                            <option value="sspai">少数派</option>
+                            <option value="itjuzi">IT桔子</option>
+                        </select>
+                        <select class="category-filter">
+                            <option value="">全部分类</option>
+                            <option value="AI软件">AI软件</option>
+                            <option value="AI应用">AI应用</option>
+                            <option value="AI研究">AI研究</option>
+                            <option value="AI工具">AI工具</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- 榜单表格 -->
+                <div class="table-container">
+                    <table class="rankings-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>标题</th>
+                                <th>来源</th>
+                                <th>分类</th>
+                                <th>发布日期</th>
+                                <th>操作</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- 榜单数据将通过 JavaScript 动态插入 -->
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- 分页 -->
+                <div class="pagination">
+                    <button class="prev-btn" disabled>上一页</button>
+                    <div class="page-numbers"></div>
+                    <button class="next-btn">下一页</button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- 添加/编辑榜单模态框 -->
+    <div class="ranking-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">添加榜单</h2>
+                <button class="modal-close">&times;</button>
+            </div>
+            <form class="ranking-form">
+                <div class="form-group">
+                    <label for="title">标题</label>
+                    <input type="text" id="title" name="title" required>
+                </div>
+                <div class="form-group">
+                    <label for="source">来源</label>
+                    <select id="source" name="source" required>
+                        <option value="36kr">36氪</option>
+                        <option value="analysys">爱分析</option>
+                        <option value="aliyun">阿里云</option>
+                        <option value="sspai">少数派</option>
+                        <option value="itjuzi">IT桔子</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="category">分类</label>
+                    <select id="category" name="category" required>
+                        <option value="AI软件">AI软件</option>
+                        <option value="AI应用">AI应用</option>
+                        <option value="AI研究">AI研究</option>
+                        <option value="AI工具">AI工具</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="url">原文链接</label>
+                    <input type="url" id="url" name="url" required>
+                </div>
+                <div class="form-group">
+                    <label for="summary">摘要</label>
+                    <textarea id="summary" name="summary" rows="4" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="publish_date">发布日期</label>
+                    <input type="date" id="publish_date" name="publish_date" required>
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="submit-btn">保存</button>
+                    <button type="button" class="cancel-btn">取消</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="../scripts/admin-api.js"></script>
+    <script src="../scripts/admin-rankings.js"></script>
+</body>
+</html> 

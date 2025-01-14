@@ -1,0 +1,192 @@
+/* 状态卡片 */
+.status-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 24px;
+    margin-bottom: 32px;
+}
+
+.status-card {
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.card-header h3 {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+.status-badge {
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.status-badge.success {
+    background: #DCFCE7;
+    color: #16A34A;
+}
+
+.status-badge.warning {
+    background: #FEF3C7;
+    color: #D97706;
+}
+
+.status-badge.error {
+    background: #FEE2E2;
+    color: #DC2626;
+}
+
+.last-update {
+    font-size: 12px;
+    color: #666;
+}
+
+/* 状态项 */
+.status-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px solid #F3F4F6;
+}
+
+.status-item:last-child {
+    border-bottom: none;
+}
+
+.status-item span:first-child {
+    color: #666;
+}
+
+.status-item span:last-child {
+    font-weight: 500;
+    color: var(--text-color);
+}
+
+/* 爬虫状态 */
+.crawler-status {
+    display: grid;
+    gap: 12px;
+}
+
+.crawler-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 12px;
+    background: #F9FAFB;
+    border-radius: 8px;
+}
+
+.crawler-item .name {
+    font-weight: 500;
+}
+
+.crawler-item .status {
+    font-size: 12px;
+    padding: 2px 8px;
+    border-radius: 8px;
+}
+
+.crawler-item .status.running {
+    background: #DCFCE7;
+    color: #16A34A;
+}
+
+.crawler-item .status.failed {
+    background: #FEE2E2;
+    color: #DC2626;
+}
+
+.crawler-item .status.pending {
+    background: #F3F4F6;
+    color: #666;
+}
+
+/* 日志列表 */
+.log-list {
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.log-item {
+    padding: 8px 0;
+    border-bottom: 1px solid #F3F4F6;
+    font-size: 14px;
+}
+
+.log-item:last-child {
+    border-bottom: none;
+}
+
+.log-item .time {
+    font-size: 12px;
+    color: #666;
+    margin-right: 8px;
+}
+
+.log-item .message {
+    color: var(--text-color);
+}
+
+/* 图表区域 */
+.charts-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 24px;
+    margin-top: 32px;
+}
+
+.chart-card {
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.chart-card h3 {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 16px;
+}
+
+/* 按钮样式 */
+.refresh-btn {
+    padding: 8px 16px;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.refresh-btn:hover {
+    background: #0066DD;
+}
+
+.view-all-btn {
+    padding: 4px 12px;
+    background: #F3F4F6;
+    color: #666;
+    border: none;
+    border-radius: 6px;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.view-all-btn:hover {
+    background: #E5E7EB;
+} 

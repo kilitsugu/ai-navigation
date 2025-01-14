@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>注册 - AI导航</title>
+    <link rel="stylesheet" href="./styles/main.css">
+    <link rel="stylesheet" href="./styles/auth.css">
+</head>
+<body>
+    <div class="auth-container">
+        <div class="auth-box">
+            <div class="auth-header">
+                <h2>创建新账号</h2>
+                <p>加入 AI导航，探索更多精彩内容</p>
+            </div>
+            <form class="auth-form">
+                <div class="form-group">
+                    <label for="username">用户名</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">电子邮箱</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">密码</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <div class="form-group">
+                    <label for="confirm-password">确认密码</label>
+                    <input type="password" id="confirm-password" name="confirm-password" required>
+                </div>
+                <div class="form-actions">
+                    <label class="agreement">
+                        <input type="checkbox" name="agree" required>
+                        <span>我同意<a href="#">服务条款</a>和<a href="#">隐私政策</a></span>
+                    </label>
+                </div>
+                <button type="submit" class="auth-submit">注册</button>
+            </form>
+            <div class="auth-footer">
+                <p>已有账号？<a href="login.html">立即登录</a></p>
+            </div>
+        </div>
+    </div>
+    <script src="./scripts/auth.js"></script>
+    <script src="./scripts/register.js"></script>
+</body>
+</html> 

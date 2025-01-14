@@ -1,0 +1,19 @@
+# 创建项目目录
+mkdir ai-navigation
+cd ai-navigation
+
+# 创建前端项目
+mkdir frontend
+cd frontend
+
+# 创建后端项目
+mkdir backend 
+
+cd backend
+
+# 初始化 package.json
+npm init -y
+
+# 安装必要的依赖
+npm install express mysql2 cors dotenv bcryptjs jsonwebtoken
+npm install nodemon --save-dev 

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>管理后台 - AI导航</title>
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/admin.css">
+</head>
+<body>
+    <div id="app" class="admin-layout">
+        <!-- 侧边栏 -->
+        <aside class="admin-sidebar">
+            <div class="admin-logo">
+                <h1>AI导航</h1>
+                <p>管理后台</p>
+            </div>
+            <nav class="admin-menu">
+                <a href="#dashboard" class="menu-item active">
+                    <span class="icon">📊</span>
+                    数据概览
+                </a>
+                <a href="#users" class="menu-item">
+                    <span class="icon">👥</span>
+                    用户管理
+                </a>
+                <a href="#rankings" class="menu-item">
+                    <span class="icon">📋</span>
+                    榜单管理
+                </a>
+                <a href="#crawler" class="menu-item">
+                    <span class="icon">🤖</span>
+                    爬虫任务
+                </a>
+            </nav>
+            <div class="admin-footer">
+                <a href="../index.html" class="back-to-site">返回网站</a>
+            </div>
+        </aside>
+
+        <!-- 主要内容区 -->
+        <main class="admin-main">
+            <!-- 顶部栏 -->
+            <header class="admin-header">
+                <div class="breadcrumb">数据概览</div>
+                <div class="admin-user">
+                    <span>管理员</span>
+                    <button class="logout-btn">退出</button>
+                </div>
+            </header>
+
+            <!-- 内容区域 -->
+            <div class="admin-content">
+                <!-- 数据概览 -->
+                <section id="dashboard" class="section">
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <h3>总用户数</h3>
+                            <div class="stat-value">1,234</div>
+                            <div class="stat-trend positive">+12% ↑</div>
+                        </div>
+                        <div class="stat-card">
+                            <h3>总榜单数</h3>
+                            <div class="stat-value">89</div>
+                            <div class="stat-trend positive">+5% ↑</div>
+                        </div>
+                        <div class="stat-card">
+                            <h3>今日访问</h3>
+                            <div class="stat-value">3,456</div>
+                            <div class="stat-trend negative">-2% ↓</div>
+                        </div>
+                        <div class="stat-card">
+                            <h3>爬虫任务</h3>
+                            <div class="stat-value">5/5</div>
+                            <div class="stat-trend neutral">正常</div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 用户管理 -->
+                <section id="users" class="section hidden">
+                    <div class="table-actions">
+                        <input type="text" placeholder="搜索用户..." class="search-input">
+                        <button class="add-btn">添加用户</button>
+                    </div>
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>用户名</th>
+                                <th>邮箱</th>
+                                <th>注册时间</th>
+                                <th>状态</th>
+                                <th>操作</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>admin</td>
+                                <td>admin@example.com</td>
+                                <td>2024-03-20</td>
+                                <td><span class="status active">正常</span></td>
+                                <td>
+                                    <button class="action-btn edit">编辑</button>
+                                    <button class="action-btn delete">删除</button>
+                                </td>
+                            </tr>
+                            <!-- 更多用户数据 -->
+                        </tbody>
+                    </table>
+                </section>
+
+                <!-- 榜单管理 -->
+                <section id="rankings" class="section hidden">
+                    <div class="table-actions">
+                        <input type="text" placeholder="搜索榜单..." class="search-input">
+                        <button class="add-btn">添加榜单</button>
+                    </div>
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>标题</th>
+                                <th>来源</th>
+                                <th>发布时间</th>
+                                <th>状态</th>
+                                <th>操作</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>2024年最受欢迎的AI工具排行榜</td>
+                                <td>36氪</td>
+                                <td>2024-03-20</td>
+                                <td><span class="status active">已发布</span></td>
+                                <td>
+                                    <button class="action-btn edit">编辑</button>
+                                    <button class="action-btn delete">删除</button>
+                                </td>
+                            </tr>
+                            <!-- 更多榜单数据 -->
+                        </tbody>
+                    </table>
+                </section>
+
+                <!-- 爬虫任务 -->
+                <section id="crawler" class="section hidden">
+                    <div class="crawler-controls">
+                        <button class="add-btn">新建任务</button>
+                        <button class="refresh-btn">刷新状态</button>
+                    </div>
+                    <div class="crawler-tasks">
+                        <div class="task-card">
+                            <div class="task-header">
+                                <h3>36氪爬虫</h3>
+                                <span class="status active">运行中</span>
+                            </div>
+                            <div class="task-info">
+                                <p>上次运行：2024-03-20 15:30</p>
+                                <p>采集数量：12条</p>
+                                <p>运行时长：5分钟</p>
+                            </div>
+                            <div class="task-actions">
+                                <button class="action-btn">停止</button>
+                                <button class="action-btn">查看日志</button>
+                            </div>
+                        </div>
+                        <!-- 更多爬虫任务卡片 -->
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <script src="../scripts/admin.js"></script>
+</body>
+</html> 

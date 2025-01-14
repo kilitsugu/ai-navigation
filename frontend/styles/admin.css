@@ -1,0 +1,434 @@
+/* 管理后台布局 */
+.admin-layout {
+    background-color: var(--bg-secondary);
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 240px 1fr;
+}
+
+/* 侧边栏样式 */
+.admin-sidebar {
+    background-color: var(--bg-primary);
+    border-right: 1px solid var(--border-color);
+    padding: 24px;
+}
+
+.admin-logo {
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 24px;
+}
+
+.admin-logo h1 {
+    font-size: 24px;
+    color: var(--text-primary);
+    margin-bottom: 4px;
+}
+
+.admin-logo p {
+    font-size: 14px;
+    color: var(--text-secondary);
+}
+
+.admin-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex: 1;
+}
+
+.admin-menu .menu-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    border-radius: 8px;
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: all 0.2s;
+}
+
+.admin-menu .menu-item:hover {
+    background-color: var(--bg-light);
+    color: var(--primary-color);
+}
+
+.admin-menu .menu-item.active {
+    background-color: var(--primary-color);
+    color: var(--text-primary);
+}
+
+.admin-footer {
+    padding-top: 24px;
+    border-top: 1px solid var(--border-color);
+}
+
+.back-to-site {
+    display: block;
+    padding: 12px;
+    text-align: center;
+    color: var(--text-primary);
+    text-decoration: none;
+    border-radius: 8px;
+    background-color: var(--bg-light);
+    transition: all 0.2s;
+}
+
+.back-to-site:hover {
+    background-color: var(--primary-color);
+}
+
+/* 主要内容区域 */
+.admin-main {
+    background-color: var(--bg-secondary);
+    min-height: 100vh;
+}
+
+/* 顶部栏 */
+.admin-header {
+    background-color: var(--bg-primary);
+    border-bottom: 1px solid var(--border-color);
+    padding: 16px 24px;
+}
+
+.breadcrumb {
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.admin-user {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.logout-btn {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 6px;
+    background: #F3F4F6;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.logout-btn:hover {
+    background: #E5E7EB;
+}
+
+/* 内容区域 */
+.admin-content {
+    padding: 24px;
+}
+
+/* 数据概览卡片 */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 24px;
+    margin-bottom: 32px;
+}
+
+.stat-card {
+    background-color: var(--bg-primary);
+    padding: 24px;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+}
+
+.stat-card h3 {
+    font-size: 14px;
+    color: var(--text-secondary);
+    margin-bottom: 8px;
+}
+
+.stat-value {
+    font-size: 32px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+}
+
+.stat-trend {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.stat-trend.positive {
+    color: var(--success-color);
+}
+
+.stat-trend.negative {
+    color: var(--error-color);
+}
+
+.stat-trend.neutral {
+    color: var(--text-secondary);
+}
+
+/* 表格样式 */
+.table-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 24px;
+}
+
+.search-input {
+    padding: 8px 16px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    width: 240px;
+    background-color: var(--bg-light);
+    color: var(--text-primary);
+}
+
+.add-btn {
+    padding: 8px 16px;
+    background-color: var(--primary-color);
+    color: var(--text-primary);
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.add-btn:hover {
+    background-color: var(--primary-dark);
+}
+
+.data-table {
+    background-color: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+}
+
+.data-table th,
+.data-table td {
+    border-bottom: 1px solid var(--border-color);
+    color: var(--text-primary);
+}
+
+.data-table th {
+    background-color: var(--bg-light);
+}
+
+.status {
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.status.active {
+    background-color: var(--success-color);
+    color: var(--text-primary);
+}
+
+.action-btn {
+    padding: 4px 8px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+    transition: all 0.2s;
+}
+
+.action-btn.edit {
+    background-color: var(--primary-color);
+    color: var(--text-primary);
+    margin-right: 8px;
+}
+
+.action-btn.delete {
+    background-color: var(--error-color);
+    color: var(--text-primary);
+}
+
+/* 爬虫任务样式 */
+.crawler-controls {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.refresh-btn {
+    padding: 8px 16px;
+    background-color: var(--bg-light);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.refresh-btn:hover {
+    background-color: var(--primary-color);
+}
+
+.crawler-tasks {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 24px;
+}
+
+.task-card {
+    background-color: var(--bg-primary);
+    border-radius: 12px;
+    padding: 20px;
+    border: 1px solid var(--border-color);
+}
+
+.task-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.task-info {
+    margin-bottom: 16px;
+    font-size: 14px;
+    color: var(--text-secondary);
+}
+
+.task-info p {
+    margin-bottom: 8px;
+}
+
+.task-actions {
+    display: flex;
+    gap: 8px;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .admin-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .admin-sidebar {
+        display: none;
+    }
+}
+
+/* 表格容器 */
+.table-container {
+    overflow-x: auto;
+    margin: 20px 0;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    background-color: var(--bg-primary);
+}
+
+/* 数据表格 */
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+}
+
+.data-table th,
+.data-table td {
+    padding: 12px 16px;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+    color: var(--text-primary);
+}
+
+.data-table th {
+    background-color: var(--bg-light);
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+/* 表格列宽度设置 */
+.data-table .col-id {
+    width: 80px;
+}
+
+.data-table .col-title {
+    min-width: 200px;
+}
+
+.data-table .col-source {
+    width: 120px;
+}
+
+.data-table .col-date {
+    width: 120px;
+}
+
+.data-table .col-category {
+    width: 120px;
+}
+
+.data-table .col-status {
+    width: 100px;
+}
+
+.data-table .col-actions {
+    width: 150px;
+    text-align: right;
+}
+
+/* 表格行悬停效果 */
+.data-table tbody tr:hover {
+    background-color: var(--bg-light);
+}
+
+/* 表格内的按钮组 */
+.table-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 8px;
+}
+
+/* 分页控件 */
+.pagination {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 8px;
+    margin-top: 20px;
+}
+
+.pagination button {
+    padding: 6px 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    background-color: var(--bg-light);
+    color: var(--text-primary);
+    cursor: pointer;
+}
+
+.pagination button:hover {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.pagination button.active {
+    background-color: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+}
+
+.pagination button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* 空状态提示 */
+.empty-state {
+    padding: 40px;
+    text-align: center;
+    color: var(--text-secondary);
+}
+
+.empty-state p {
+    margin-bottom: 16px;
+} 

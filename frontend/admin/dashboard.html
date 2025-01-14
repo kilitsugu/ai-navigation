@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>系统状态 - AI导航管理后台</title>
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/admin.css">
+    <link rel="stylesheet" href="../styles/admin-dashboard.css">
+</head>
+<body>
+    <div class="admin-layout">
+        <!-- 侧边栏 -->
+        <aside class="admin-sidebar">
+            <div class="logo">
+                <h1>AI导航管理后台</h1>
+            </div>
+            <nav class="admin-nav">
+                <a href="dashboard.html" class="active">系统状态</a>
+                <a href="rankings.html">榜单管理</a>
+                <a href="crawler.html">爬虫管理</a>
+                <a href="users.html">用户管理</a>
+                <a href="settings.html">系统设置</a>
+            </nav>
+        </aside>
+
+        <!-- 主要内容区 -->
+        <main class="admin-main">
+            <header class="admin-header">
+                <h1>系统状态</h1>
+                <div class="header-actions">
+                    <button class="refresh-btn">刷新数据</button>
+                </div>
+            </header>
+
+            <div class="admin-content">
+                <!-- 状态卡片 -->
+                <div class="status-cards">
+                    <div class="status-card">
+                        <div class="card-header">
+                            <h3>系统状态</h3>
+                            <span class="status-badge success">正常运行</span>
+                        </div>
+                        <div class="card-body">
+                            <div class="status-item">
+                                <span>运行时间</span>
+                                <span class="uptime">0天0小时0分钟</span>
+                            </div>
+                            <div class="status-item">
+                                <span>CPU使用率</span>
+                                <span class="cpu-usage">0%</span>
+                            </div>
+                            <div class="status-item">
+                                <span>内存使用率</span>
+                                <span class="memory-usage">0%</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="status-card">
+                        <div class="card-header">
+                            <h3>数据统计</h3>
+                            <span class="last-update">最后更新: 刚刚</span>
+                        </div>
+                        <div class="card-body">
+                            <div class="status-item">
+                                <span>总榜单数</span>
+                                <span class="rankings-count">0</span>
+                            </div>
+                            <div class="status-item">
+                                <span>今日新增</span>
+                                <span class="today-rankings">0</span>
+                            </div>
+                            <div class="status-item">
+                                <span>用户数量</span>
+                                <span class="users-count">0</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="status-card">
+                        <div class="card-header">
+                            <h3>爬虫状态</h3>
+                            <span class="status-badge warning">部分运行</span>
+                        </div>
+                        <div class="card-body crawler-status">
+                            <!-- 爬虫状态将通过 JavaScript 动态插入 -->
+                        </div>
+                    </div>
+
+                    <div class="status-card">
+                        <div class="card-header">
+                            <h3>系统日志</h3>
+                            <button class="view-all-btn">查看全部</button>
+                        </div>
+                        <div class="card-body">
+                            <div class="log-list">
+                                <!-- 日志将通过 JavaScript 动态插入 -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 图表区域 -->
+                <div class="charts-section">
+                    <div class="chart-card">
+                        <h3>榜单数量趋势</h3>
+                        <canvas id="rankingsChart"></canvas>
+                    </div>
+                    <div class="chart-card">
+                        <h3>用户活跃度</h3>
+                        <canvas id="usersChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="../scripts/admin-api.js"></script>
+    <script src="../scripts/admin-dashboard.js"></script>
+</body>
+</html> 

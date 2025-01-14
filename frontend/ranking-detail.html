@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>榜单详情 - AI导航</title>
+    <link rel="stylesheet" href="./styles/main.css">
+    <link rel="stylesheet" href="./styles/ranking-detail.css">
+</head>
+<body>
+    <div id="app">
+        <!-- 顶部导航栏 -->
+        <header class="header">
+            <div class="container">
+                <div class="logo">
+                    <a href="index.html"><h1>AI导航</h1></a>
+                </div>
+                <nav class="nav">
+                    <div class="user-actions">
+                        <a href="login.html"><button class="login-btn">登录</button></a>
+                        <a href="register.html"><button class="register-btn">注册</button></a>
+                    </div>
+                </nav>
+            </div>
+        </header>
+
+        <!-- 主要内容区 -->
+        <main class="main">
+            <div class="container">
+                <div class="ranking-detail">
+                    <div class="ranking-header">
+                        <div class="meta">
+                            <span class="source"></span>
+                            <span class="date"></span>
+                            <span class="category"></span>
+                        </div>
+                        <h1 class="title"></h1>
+                        <div class="actions">
+                            <button class="favorite-btn">收藏</button>
+                            <a class="source-link" target="_blank">查看原文</a>
+                        </div>
+                    </div>
+                    <div class="ranking-content">
+                        <p class="summary"></p>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- 页脚 -->
+        <footer class="footer">
+            <div class="container">
+                <p>&copy; 2024 AI导航. All rights reserved.</p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="./scripts/ranking-api.js"></script>
+    <script src="./scripts/ranking-detail.js"></script>
+</body>
+</html> 
