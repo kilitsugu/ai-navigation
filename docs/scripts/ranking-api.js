@@ -63,15 +63,19 @@ function hideLoading() {
     container.classList.remove('loading');
 }
 
-// 修改 fetchRankings 函数
-async function fetchRankings() {
+let currentPage = 1;
+let currentCategory = 'all';
+const PAGE_SIZE = 10;
+
+async function fetchRankings(page = 1, category = 'all') {
     showLoading();
     try {
-        const response = await fetch('http://localhost:3000/api/toolify/rankings');
+        const response = await fetch(`${API_URL}/toolify/rankings?page=${page}&category=${category}`);
         const data = await response.json();
         
         if (data.success) {
             displayRankings(data.data);
+            updatePagination(data.total, page);
         } else {
             throw new Error(data.message);
         }
@@ -82,6 +86,45 @@ async function fetchRankings() {
         hideLoading();
     }
 }
+
+function updatePagination(total, currentPage) {
+    const totalPages = Math.ceil(total / PAGE_SIZE);
+    document.querySelector('.current-page').textContent = currentPage;
+    document.querySelector('.total-pages').textContent = totalPages;
+    
+    document.querySelector('.prev-btn').disabled = currentPage === 1;
+    document.querySelector('.next-btn').disabled = currentPage === totalPages;
+}
+
+// 添加事件监听
+document.addEventListener('DOMContentLoaded', () => {
+    // 分类按钮点击
+    document.querySelectorAll('.category-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            document.querySelector('.category-btn.active').classList.remove('active');
+            btn.classList.add('active');
+            currentCategory = btn.dataset.category;
+            currentPage = 1;
+            fetchRankings(currentPage, currentCategory);
+        });
+    });
+
+    // 分页按钮点击
+    document.querySelector('.prev-btn').addEventListener('click', () => {
+        if (currentPage > 1) {
+            currentPage--;
+            fetchRankings(currentPage, currentCategory);
+        }
+    });
+
+    document.querySelector('.next-btn').addEventListener('click', () => {
+        currentPage++;
+        fetchRankings(currentPage, currentCategory);
+    });
+
+    // 初始加载
+    fetchRankings(currentPage, currentCategory);
+});
 
 function displayRankings(rankings) {
     const container = document.querySelector('.rankings');

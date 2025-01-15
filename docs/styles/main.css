@@ -403,3 +403,134 @@ button {
 .button:hover {
     background-color: var(--primary-dark);
 } 
+
+/* 分类导航样式 */
+.categories {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    padding: 20px 0;
+}
+
+.category-btn {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 20px;
+    background: var(--bg-secondary);
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.category-btn:hover {
+    background: var(--primary-light);
+    color: var(--primary-color);
+}
+
+.category-btn.active {
+    background: var(--primary-color);
+    color: white;
+}
+
+/* 分页控制样式 */
+.pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 30px;
+    padding: 20px 0;
+}
+
+.page-btn {
+    padding: 8px 20px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    background: var(--bg-light);
+    color: var(--text-primary);
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.page-btn:hover:not(:disabled) {
+    background: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+}
+
+.page-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.page-numbers {
+    font-size: 14px;
+    color: var(--text-secondary);
+}
+
+/* 榜单卡片样式 */
+.rankings {
+    display: grid;
+    gap: 20px;
+}
+
+.ranking-card {
+    padding: 20px;
+    background: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    transition: transform 0.3s;
+}
+
+.ranking-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.ranking-card .source {
+    font-size: 14px;
+    color: var(--text-secondary);
+    margin-bottom: 10px;
+}
+
+.ranking-card .title {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.ranking-card .title a {
+    color: var(--text-primary);
+    text-decoration: none;
+}
+
+.ranking-card .title a:hover {
+    color: var(--primary-color);
+}
+
+.ranking-card .summary {
+    font-size: 14px;
+    color: var(--text-secondary);
+    margin-bottom: 15px;
+}
+
+.ranking-card .meta {
+    display: flex;
+    gap: 15px;
+    font-size: 12px;
+    color: var(--text-secondary);
+}
+
+.ranking-card .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.ranking-card .tag {
+    padding: 4px 8px;
+    background: var(--bg-secondary);
+    border-radius: 4px;
+    font-size: 12px;
+    color: var(--text-secondary);
+} 

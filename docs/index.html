@@ -3,83 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI导航 - 你的AI榜单聚合平台</title>
-    <link rel="stylesheet" href="styles/main.css">
-    <link rel="stylesheet" href="styles/theme.css">
-    <!-- Element Plus -->
-    <link rel="stylesheet" href="https://unpkg.com/element-plus/dist/index.css">
+    <title>AI导航 - 发现优质AI工具</title>
+    <link rel="stylesheet" href="./styles/main.css">
+    <link rel="stylesheet" href="./styles/theme.css">
 </head>
 <body>
-    <div id="app">
-        <!-- 顶部导航栏 -->
-        <header class="header">
-            <div class="container">
-                <div class="logo">
-                    <h1>AI导航</h1>
-                </div>
-                <nav class="nav">
-                    <div class="search">
-                        <input type="text" placeholder="搜索AI榜单...">
-                        <div class="loading"></div>
-                    </div>
-                    <div class="user-actions">
-                        <a href="login.html"><button class="login-btn">登录</button></a>
-                        <a href="register.html"><button class="register-btn">注册</button></a>
-                    </div>
-                </nav>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">AI导航</a>
             </div>
-        </header>
+            <nav class="nav">
+                <div class="search">
+                    <input type="text" placeholder="搜索AI榜单...">
+                </div>
+                <div class="user-menu">
+                    <a href="./login.html" class="login-btn">登录</a>
+                    <a href="./register.html" class="register-btn">注册</a>
+                </div>
+            </nav>
+        </div>
+    </header>
 
-        <!-- 主要内容区 -->
-        <main class="main">
-            <div class="container">
-                <!-- 分类筛选 -->
-                <div class="filters">
-                    <h2>榜单分类</h2>
-                    <div class="search-info">
-                        搜索"<span class="highlight"></span>"的结果：共 <span class="result-count"></span> 条
-                    </div>
-                    <ul class="category-list">
-                        <li class="active">全部</li>
-                        <li>AI软件</li>
-                        <li>AI应用</li>
-                        <li>AI研究</li>
-                        <li>AI工具</li>
-                    </ul>
-                </div>
-
-                <!-- 榜单列表 -->
-                <div class="rankings">
-                    <div class="ranking-card">
-                        <div class="source">来源：36氪</div>
-                        <h3 class="title">2024年最受欢迎的AI工具排行榜</h3>
-                        <p class="summary">榜单包含了2024年最受欢迎的AI工具，涵盖了图像生成、文本处理等多个领域...</p>
-                        <div class="meta">
-                            <span class="date">2024-03-20</span>
-                            <span class="category">AI工具</span>
-                        </div>
-                    </div>
-                    <!-- 更多榜单卡片 -->
-                </div>
-                <!-- 分页组件 -->
-                <div class="pagination">
-                    <button class="prev-btn" disabled>上一页</button>
-                    <div class="page-numbers"></div>
-                    <button class="next-btn">下一页</button>
-                </div>
+    <main class="main">
+        <div class="container">
+            <div class="categories">
+                <button class="category-btn active" data-category="all">全部</button>
+                <button class="category-btn" data-category="AI软件">AI软件</button>
+                <button class="category-btn" data-category="AI应用">AI应用</button>
+                <button class="category-btn" data-category="AI研究">AI研究</button>
+                <button class="category-btn" data-category="AI工具">AI工具</button>
             </div>
-        </main>
 
-        <!-- 页脚 -->
-        <footer class="footer">
-            <div class="container">
-                <p>&copy; 2024 AI导航. All rights reserved.</p>
+            <div class="rankings">
+                <!-- 榜单数据将通过 JavaScript 动态加载 -->
             </div>
-        </footer>
-    </div>
 
-    <script src="scripts/ranking-api.js"></script>
-    <script src="scripts/main.js"></script>
-    <script src="scripts/theme.js"></script>
+            <div class="pagination">
+                <button class="page-btn prev-btn" disabled>上一页</button>
+                <div class="page-numbers">
+                    <span class="current-page">1</span> / <span class="total-pages">1</span>
+                </div>
+                <button class="page-btn next-btn">下一页</button>
+            </div>
+        </div>
+    </main>
+
+    <script src="./scripts/theme.js"></script>
+    <script src="./scripts/ranking-api.js"></script>
 </body>
 </html> 
