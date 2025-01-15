@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const path = require('path');
+const crawlerScheduler = require('./utils/scheduler');
 require('dotenv').config();
 
 const app = express();
@@ -17,6 +18,7 @@ app.use('/api/users', require('./routes/userRoutes'));
 app.use('/api/rankings', require('./routes/rankingRoutes'));
 app.use('/api/crawler', require('./routes/crawlerRoutes'));
 app.use('/api/monitor', require('./routes/monitorRoutes'));
+app.use('/api/toolify', require('./routes/toolifyRoutes'));
 
 // 所有其他请求都返回 index.html
 app.get('*', (req, res) => {
@@ -28,6 +30,9 @@ app.use((err, req, res, next) => {
     console.error(err.stack);
     res.status(500).json({ message: '服务器错误' });
 });
+
+// 启动爬虫调度器
+crawlerScheduler.start().catch(console.error);
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {

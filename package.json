@@ -1,0 +1,17 @@
+{
+  "name": "ai-navigation",
+  "version": "1.0.0",
+  "description": "AI导航网站",
+  "scripts": {
+    "dev": "cd backend && npm run dev",
+    "start": "cd backend && npm start",
+    "init-db": "cd backend && npm run init-db"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  }
+}

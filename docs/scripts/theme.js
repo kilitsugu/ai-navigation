@@ -1,38 +1,38 @@
-// 主题切换功能
+// 主题配置
 const themes = {
-    default: '默认蓝',
-    purple: '优雅紫',
-    green: '自然绿',
-    dark: '暗夜'
+    light: {
+        '--bg-primary': '#ffffff',
+        '--bg-secondary': '#f5f5f5',
+        '--text-primary': '#333333',
+        '--text-secondary': '#666666',
+        '--primary-color': '#007AFF',
+        '--primary-dark': '#0066DD',
+        '--border-color': '#e0e0e0'
+    },
+    dark: {
+        '--bg-primary': '#1a1a1a',
+        '--bg-secondary': '#2d2d2d',
+        '--text-primary': '#ffffff',
+        '--text-secondary': '#cccccc',
+        '--primary-color': '#0A84FF',
+        '--primary-dark': '#0066CC',
+        '--border-color': '#404040'
+    }
 };
 
+// 主题切换功能
 function initTheme() {
-    // 创建主题切换按钮
-    const themeSwitch = document.createElement('div');
-    themeSwitch.className = 'theme-switch';
-    themeSwitch.innerHTML = `
-        <select class="theme-select">
-            ${Object.entries(themes).map(([value, name]) => 
-                `<option value="${value}">${name}</option>`
-            ).join('')}
-        </select>
-    `;
-
-    // 添加到页面
-    document.querySelector('.header .container').appendChild(themeSwitch);
-
-    // 加载保存的主题
-    const savedTheme = localStorage.getItem('theme') || 'default';
-    document.documentElement.setAttribute('data-theme', savedTheme);
-    themeSwitch.querySelector('select').value = savedTheme;
-
-    // 监听主题切换
-    themeSwitch.querySelector('select').addEventListener('change', (e) => {
-        const theme = e.target.value;
-        document.documentElement.setAttribute('data-theme', theme);
-        localStorage.setItem('theme', theme);
-    });
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    applyTheme(savedTheme);
 }
 
-// 页面加载时初始化主题
+function applyTheme(themeName) {
+    const theme = themes[themeName];
+    Object.entries(theme).forEach(([key, value]) => {
+        document.documentElement.style.setProperty(key, value);
+    });
+    localStorage.setItem('theme', themeName);
+}
+
+// 初始化主题
 document.addEventListener('DOMContentLoaded', initTheme); 

@@ -18,5 +18,12 @@
   },
   "devDependencies": {
     "nodemon": "^2.0.22"
-  }
+  },
+  "name": "backend",
+  "version": "1.0.0",
+  "main": "create-admin.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
 }

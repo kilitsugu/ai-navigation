@@ -93,3 +93,10 @@ INSERT INTO crawler_tasks (name, source, schedule) VALUES
 ('阿里云 AI榜单', 'aliyun', '0 */6 * * *'),
 ('少数派 AI榜单', 'sspai', '0 */6 * * *'),
 ('IT桔子 AI榜单', 'itjuzi', '0 */6 * * *'); 
+
+-- 在 rankings 表中添加新字段
+ALTER TABLE rankings
+ADD COLUMN visits BIGINT DEFAULT 0,
+ADD COLUMN growth_rate VARCHAR(50),
+ADD COLUMN tags JSON,
+ADD UNIQUE KEY unique_title_source (title, source); 

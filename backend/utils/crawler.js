@@ -1,64 +1,65 @@
 const axios = require('axios');
-const { HttpsProxyAgent } = require('https-proxy-agent');
+const cheerio = require('cheerio');
 
-class CrawlerUtils {
-    static async fetchWithRetry(url, options = {}, retries = 3) {
+class ToolifyCrawler {
+    constructor() {
+        this.baseUrl = 'https://www.toolify.ai/zh/Best-trending-AI-Tools';
+        this.headers = {
+            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36',
+            'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+            'Accept-Language': 'zh-CN,zh;q=0.9,en;q=0.8'
+        };
+    }
+
+    async fetchPage() {
         try {
-            const response = await axios({
-                url,
-                ...options,
-                timeout: 10000,
-                headers: {
-                    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36',
-                    ...options.headers
-                }
-            });
-            return response;
+            const response = await axios.get(this.baseUrl, { headers: this.headers });
+            return response.data;
         } catch (error) {
-            if (retries > 0) {
-                console.log(`请求失败，重试剩余次数: ${retries - 1}`);
-                await new Promise(resolve => setTimeout(resolve, 2000));
-                return this.fetchWithRetry(url, options, retries - 1);
-            }
+            console.error('获取页面失败:', error);
             throw error;
         }
     }
 
-    static async fetchWithProxy(url, options = {}) {
-        const proxyList = [
-            'http://proxy1.example.com:8080',
-            'http://proxy2.example.com:8080',
-            'http://proxy3.example.com:8080'
-        ];
+    parseRankings(html) {
+        const $ = cheerio.load(html);
+        const rankings = [];
 
-        const proxy = proxyList[Math.floor(Math.random() * proxyList.length)];
-        const httpsAgent = new HttpsProxyAgent(proxy);
+        // 查找包含排行数据的表格行
+        $('table tr').each((index, element) => {
+            if (index === 0) return; // 跳过表头
 
-        return this.fetchWithRetry(url, {
-            ...options,
-            httpsAgent
+            const row = $(element);
+            const ranking = {
+                rank: row.find('td:nth-child(1)').text().trim(),
+                title: row.find('td:nth-child(2)').text().trim(),
+                visits: row.find('td:nth-child(3)').text().trim(),
+                growth: row.find('td:nth-child(4)').text().trim(),
+                growthRate: row.find('td:nth-child(5)').text().trim(),
+                description: row.find('td:nth-child(6)').text().trim(),
+                tags: row.find('td:nth-child(7)').text().trim().split(',').map(tag => tag.trim()),
+                url: row.find('td:nth-child(2) a').attr('href'),
+                source: 'toolify.ai',
+                category: 'AI工具',
+                publish_date: new Date().toISOString().split('T')[0]
+            };
+
+            rankings.push(ranking);
         });
+
+        return rankings;
     }
 
-    static formatDate(dateStr) {
+    async crawl() {
         try {
-            const date = new Date(dateStr);
-            return date.toISOString().split('T')[0];
+            const html = await this.fetchPage();
+            const rankings = this.parseRankings(html);
+            return rankings;
         } catch (error) {
-            return new Date().toISOString().split('T')[0];
+            console.error('爬取失败:', error);
+            throw error;
         }
-    }
-
-    static sanitizeText(text) {
-        return text
-            .replace(/[\n\r\t]/g, ' ')
-            .replace(/\s+/g, ' ')
-            .trim();
-    }
-
-    static async delay(ms) {
-        return new Promise(resolve => setTimeout(resolve, ms));
     }
 }
 
-module.exports = CrawlerUtils; 
+module.exports = ToolifyCrawler; 
