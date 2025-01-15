@@ -1,5 +1,5 @@
 // API 基础 URL
-const API_URL = 'http://localhost:3000/api';
+const API_URL = '/api';
 
 // 登录函数
 async function login(username, password) {

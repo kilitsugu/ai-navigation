@@ -15,7 +15,7 @@
                 <h2>登录到 AI导航</h2>
                 <p>欢迎回来，请输入您的账号信息</p>
             </div>
-            <form class="auth-form">
+            <form class="auth-form" id="loginForm">
                 <div class="form-group">
                     <label for="username">用户名</label>
                     <input type="text" id="username" name="username" required>
@@ -32,8 +32,8 @@
                         </button>
                     </div>
                 </div>
-                <div class="form-actions">
-                    <label class="remember-me">
+                <div class="form-group">
+                    <label class="checkbox">
                         <input type="checkbox" name="remember">
                         <span>记住我</span>
                     </label>
@@ -42,12 +42,12 @@
                 <button type="submit" class="auth-submit">登录</button>
             </form>
             <div class="auth-footer">
-                <p>还没有账号？<a href="register.html">立即注册</a></p>
+                <p>还没有账号？<a href="./register.html">立即注册</a></p>
             </div>
         </div>
     </div>
+
     <script src="./scripts/auth.js"></script>
-    <script src="./scripts/login.js"></script>
     <script src="./scripts/theme.js"></script>
 </body>
 </html> 
